@@ -4,14 +4,6 @@
   "private": true,
   "description": "Mary Crown Restaurant Digital Menu",
   "scripts": {
-    "build": "echo \"Build complete\"",
-    "start": "npx serve ."
-  },
-  "keywords": [
-    "restaurant",
-    "menu",
-    "mary-crown"
-  ],
-  "author": "Mary Crown Restaurant",
-  "license": "ISC"
+    "build": "mkdir -p dist && cp -r index.html assets manifest.json robots.txt sitemap.xml dist/ && cp -r public/* dist/ 2>/dev/null || true"
+  }
 }
