@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="30%" stop-color="#F59E0B"/>
+      <stop offset="70%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+    <radialGradient id="darkBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1c1e24"/>
+      <stop offset="100%" stop-color="#0a0c10"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Outer Ring -->
+  <circle cx="60" cy="60" r="56" fill="url(#darkBg)" stroke="url(#goldGrad)" stroke-width="3.5" />
+  <circle cx="60" cy="60" r="50" fill="none" stroke="url(#goldGrad)" stroke-width="1" stroke-dasharray="3 2" />
+  
+  <!-- Arabic Calligraphy "حلال" (HALAL) Stylized Vectors -->
+  <g fill="url(#goldGrad)">
+    <!-- Ha-Lam-Alif-Lam representation -->
+    <path d="M42 46 C42 40, 50 36, 60 36 C70 36, 78 40, 78 46 C78 52, 70 54, 60 54 C50 54, 42 52, 42 46 Z" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" />
+    <path d="M52 38 Q60 26 68 38 Q64 56 60 66 Q56 56 52 38 Z" />
+    <path d="M40 50 Q36 60 48 64 Q56 66 60 66 Q64 66 72 64 Q84 60 80 50 Q72 58 60 58 Q48 58 40 50 Z" />
+    <circle cx="60" cy="30" r="3" />
+  </g>
+  
+  <!-- Text HALAL CERTIFIED -->
+  <text x="60" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="13" fill="url(#goldGrad)" letter-spacing="2">HALAL</text>
+  <text x="60" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600" font-size="8" fill="#FDE68A" letter-spacing="1.5">CERTIFIED</text>
+</svg>

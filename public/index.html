@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <!-- Primary Meta Tags -->
+  <title>Mary Crown Restaurant | Premium Digital Menu & Online Ordering in Potheri</title>
+  <meta name="title" content="Mary Crown Restaurant | Premium Digital Menu & Online Ordering in Potheri">
+  <meta name="description" content="Explore the authentic menu of Mary Crown Restaurant, Potheri. Famous for Hyderabadi Dum Biriyani, Arabian Shawarma, Charcoal Tandoori & Chinese Delicacies. Free Home Delivery within 5km.">
+  <meta name="keywords" content="Mary Crown Restaurant, Restaurant in Potheri, Restaurants in Potheri, Indian Restaurant Potheri, Chinese Restaurant Potheri, Biryani Potheri, Shawarma Potheri, Tandoori Restaurant Potheri, Food delivery Potheri, SRM University restaurant">
+  <meta name="author" content="Mary Crown Restaurant">
+  <meta name="theme-color" content="#06080B">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="restaurant.menu">
+  <meta property="og:url" content="https://marycrown.restaurant/">
+  <meta property="og:title" content="Mary Crown Restaurant - Premium Digital Menu">
+  <meta property="og:description" content="Order authentic Biriyani, Shawarma, Tandoori & Chinese cuisine online with WhatsApp ordering & free delivery within 5km in Potheri.">
+  <meta property="og:image" content="assets/images/logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Mary Crown Restaurant | Digital Menu">
+  <meta property="twitter:description" content="Authentic Indian, Chinese, Arabian & Tandoori in Potheri. Fast delivery & WhatsApp ordering.">
+  <meta property="twitter:image" content="assets/images/logo.png">
+
+  <!-- Favicons & Manifest -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="apple-touch-icon" href="assets/images/logo.png">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              gold: "#F59E0B",
+              darkGold: "#D97706",
+              lightGold: "#FDE68A",
+              dark: "#0A0D12",
+              darkest: "#06080B",
+              surface: "#10151E",
+              surfaceElevated: "#161D2A"
+            }
+          },
+          fontFamily: {
+            brand: ["Cinzel", "Georgia", "serif"],
+            accent: ["Playfair Display", "Georgia", "serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- JSON-LD Structured Data for Local Business / Restaurant SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Mary Crown Restaurant",
+    "image": "assets/images/logo.png",
+    "telephone": "+917418825826",
+    "email": "mcrestaurant@yahoo.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "55-Vivekanandha Street",
+      "addressLocality": "Potheri",
+      "postalCode": "603203",
+      "addressRegion": "Tamil Nadu",
+      "addressCountry": "IN"
+    },
+    "servesCuisine": [
+      "Indian",
+      "Chinese",
+      "Arabian",
+      "Tandoori",
+      "Biryani",
+      "Shawarma"
+    ],
+    "priceRange": "₹₹",
+    "paymentAccepted": "Cash, UPI, Online",
+    "currenciesAccepted": "INR",
+    "hasMenu": "https://marycrown.restaurant/",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Food Delivery",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Free Home Delivery (5km Radius)"
+          },
+          "price": "0",
+          "priceCurrency": "INR"
+        }
+      ]
+    }
+  }
+  </script>
+</head>
+<body class="bg-brand-dark text-slate-100 font-body selection:bg-amber-500 selection:text-slate-950">
+
+  <!-- ==================== STICKY HEADER ==================== -->
+  <header id="site-header" class="site-header py-3 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
+      
+      <!-- Brand Logo & Name -->
+      <a href="#" class="flex items-center gap-3 group" aria-label="Mary Crown Restaurant Home">
+        <div class="relative w-11 h-11 md:w-13 md:h-13 rounded-full bg-brand-surfaceElevated p-1 border border-yellow-500/35 flex items-center justify-center shadow-md group-hover:border-yellow-400 transition-colors">
+          <img src="assets/images/logo.png" alt="Mary Crown Restaurant Logo" class="w-full h-full object-contain">
+        </div>
+        <div>
+          <span class="font-brand font-extrabold text-base md:text-xl text-gold-gradient tracking-wider uppercase leading-none block">
+            Mary Crown
+          </span>
+          <span class="text-[10px] md:text-xs text-amber-300/80 font-medium tracking-widest block uppercase mt-0.5">
+            Restaurant • Potheri
+          </span>
+        </div>
+      </a>
+
+      <!-- Quick Actions -->
+      <div class="flex items-center gap-2 md:gap-4">
+        
+        <!-- Call Button -->
+        <a href="tel:7418825826" class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-yellow-500/25 text-xs font-bold text-amber-300 hover:border-yellow-400 transition-colors" title="Call Mary Crown">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+          </svg>
+          <span>7418825826</span>
+        </a>
+
+        <!-- Original Menus trigger -->
+        <button id="open-menu-1-btn" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-slate-300 hover:text-amber-300 hover:border-yellow-500/40 transition-colors" title="View original printed menu scans">
+          <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          <span>Menu Scans</span>
+        </button>
+
+        <!-- Cart Button -->
+        <button class="cart-open-btn relative inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gold-gradient text-slate-950 font-extrabold text-xs md:text-sm shadow-md hover:scale-105 transition-transform" aria-label="Open Cart">
+          <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.3" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+          </svg>
+          <span>Cart</span>
+          <span id="header-cart-badge" class="hidden min-w-[20px] h-5 px-1 rounded-full bg-slate-950 text-amber-300 text-[11px] font-extrabold flex items-center justify-center">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative pt-8 pb-10 px-4 md:px-8 overflow-hidden">
+    <div class="max-w-6xl mx-auto text-center relative z-10">
+      
+      <!-- Top Halal Badge -->
+      <div class="inline-flex items-center gap-2.5 p-1.5 pr-4 rounded-full bg-slate-900/90 border border-yellow-500/30 shadow-lg mb-5 backdrop-blur-md">
+        <div class="w-6 h-6 rounded-full bg-yellow-500/20 p-0.5 flex items-center justify-center">
+          <img src="assets/images/halal-badge.svg" alt="Halal Certified" class="w-full h-full object-contain">
+        </div>
+        <span class="text-xs font-bold text-amber-300 tracking-wide uppercase">100% Halal Certified</span>
+        <span class="w-1 h-1 rounded-full bg-amber-500"></span>
+        <span class="text-xs text-slate-300 font-medium">Authentic Recipes</span>
+      </div>
+
+      <!-- Main Restaurant Logo & Title -->
+      <div class="flex justify-center mb-3">
+        <img src="assets/images/logo.png" alt="Mary Crown Insignia" class="w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-2xl hover:scale-105 transition-transform">
+      </div>
+
+      <h1 class="font-brand font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gold-gradient tracking-wider uppercase mb-2 drop-shadow-lg">
+        Mary Crown Restaurant
+      </h1>
+
+      <p class="text-xs md:text-base font-semibold text-amber-200/90 tracking-widest uppercase mb-6">
+        Indian • Chinese • Arabian • Tandoori
+      </p>
+
+      <!-- Key Service Highlights Pills -->
+      <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 max-w-2xl mx-auto mb-7 text-xs md:text-sm">
+        <div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-surface border border-yellow-500/25 text-slate-200 shadow-sm">
+          <span>🛵</span>
+          <span><strong>Free Delivery</strong> (5 km Radius)</span>
+        </div>
+        <div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-surface border border-yellow-500/25 text-slate-200 shadow-sm">
+          <span>💰</span>
+          <span><strong>Min Order</strong> ₹100</span>
+        </div>
+        <div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-surface border border-yellow-500/25 text-slate-200 shadow-sm">
+          <span>📍</span>
+          <span>55-Vivekanandha St, Potheri</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a href="#menu-section" class="px-6 py-3 rounded-xl bg-gold-gradient text-slate-950 font-extrabold text-sm md:text-base shadow-lg hover:shadow-yellow-500/20 hover:scale-105 transition-all inline-flex items-center gap-2">
+          <span>Explore Menu</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </a>
+
+        <a href="https://wa.me/917418825826?text=Hi%20Mary%20Crown%20Restaurant%2C%20I%20would%20like%20to%20view%20the%20menu%20and%20place%20an%20order." target="_blank" rel="noopener" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm md:text-base shadow-lg hover:scale-105 transition-all inline-flex items-center gap-2">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/>
+          </svg>
+          <span>Order on WhatsApp</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SEARCH & FILTERS ==================== -->
+  <section id="menu-section" class="pt-2 pb-2 px-4 md:px-8 max-w-7xl mx-auto">
+    <div class="bg-brand-surface border border-yellow-500/20 rounded-2xl p-4 md:p-6 shadow-xl mb-4 backdrop-blur-md">
+      
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        
+        <!-- Live Search Bar -->
+        <div class="relative flex-1">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+            <svg class="w-5 h-5 text-amber-400/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </div>
+          <input 
+            type="text" 
+            id="menu-search" 
+            placeholder="Search dishes (e.g. Biriyani, Chicken 65, Shawarma, Paneer)..." 
+            class="w-full pl-11 pr-10 py-3 bg-brand-darkest border border-slate-700/80 rounded-xl text-sm md:text-base text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-colors"
+          >
+          <button id="search-clear-btn" class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-white" aria-label="Clear search">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Dietary Filters -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0">
+          <button class="diet-filter-btn active px-4 py-2 rounded-xl text-xs md:text-sm font-bold bg-gold-gradient text-slate-950 shadow-sm transition-all" data-filter="all">
+            ALL
+          </button>
+          
+          <button class="diet-filter-btn px-4 py-2 rounded-xl text-xs md:text-sm font-semibold text-slate-300 bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 hover:text-emerald-300 transition-all flex items-center gap-1.5" data-filter="veg">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            <span>VEG ONLY</span>
+          </button>
+          
+          <button class="diet-filter-btn px-4 py-2 rounded-xl text-xs md:text-sm font-semibold text-slate-300 bg-slate-900/80 border border-slate-800 hover:border-red-500/50 hover:text-red-300 transition-all flex items-center gap-1.5" data-filter="nonveg">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+            <span>NON-VEG</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Quick Search Suggestions Chips & Result Count -->
+      <div class="flex flex-wrap items-center justify-between gap-2 mt-3 pt-3 border-t border-slate-800/80 text-xs">
+        <div id="search-suggestions" class="flex flex-wrap items-center gap-1.5 text-slate-400">
+          <span class="text-slate-500 mr-1">Try:</span>
+          <button data-search-query="Biriyani" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-yellow-500/40 text-slate-300 hover:text-amber-300 transition-colors">🔥 Biriyani</button>
+          <button data-search-query="Chicken 65" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-yellow-500/40 text-slate-300 hover:text-amber-300 transition-colors">🍗 Chicken 65</button>
+          <button data-search-query="Shawarma" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-yellow-500/40 text-slate-300 hover:text-amber-300 transition-colors">🌯 Shawarma</button>
+          <button data-search-query="Tandoori" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-yellow-500/40 text-slate-300 hover:text-amber-300 transition-colors">🍢 Tandoori</button>
+          <button data-search-query="Combo" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-yellow-500/40 text-slate-300 hover:text-amber-300 transition-colors">✨ Combos</button>
+          <button data-search-query="Paneer" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-yellow-500/40 text-slate-300 hover:text-amber-300 transition-colors">🌱 Paneer</button>
+        </div>
+        <div id="search-result-count" class="hidden text-amber-400 font-semibold"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== HORIZONTAL CATEGORY NAVIGATION BAR ==================== -->
+  <div class="category-nav-wrapper">
+    <div class="max-w-7xl mx-auto">
+      <div id="category-scroll" class="category-scroll-container">
+        <!-- Dynamically populated via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MENU ITEMS MASTER CONTAINER ==================== -->
+  <main class="max-w-7xl mx-auto px-4 md:px-8 py-8">
+    <div id="menu-container">
+      <!-- Dynamically populated categories & dish cards via app.js -->
+    </div>
+  </main>
+
+  <!-- ==================== RESTAURANT INFORMATION & DELIVERY HUB ==================== -->
+  <section class="max-w-7xl mx-auto px-4 md:px-8 py-12">
+    <div class="bg-gradient-to-br from-brand-surface to-brand-surfaceElevated border border-yellow-500/30 rounded-2xl p-6 md:p-10 shadow-2xl relative overflow-hidden">
+      
+      <!-- Ambient Glow -->
+      <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2 class="font-brand font-black text-2xl md:text-4xl text-gold-gradient tracking-wide uppercase mb-2">
+          Mary Crown Information
+        </h2>
+        <p class="text-sm text-slate-400">Order directly, visit our restaurant, or reach out anytime</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        
+        <!-- Contact & Phone Card -->
+        <a href="tel:7418825826" class="p-5 rounded-xl bg-black/40 border border-yellow-500/20 hover:border-yellow-400/60 transition-colors group">
+          <div class="w-10 h-10 rounded-lg bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-amber-400 mb-3 group-hover:scale-110 transition-transform">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+          </div>
+          <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold block">Phone / WhatsApp</span>
+          <span class="text-base font-bold text-amber-300 block mt-1">7418825826</span>
+          <span class="text-xs text-slate-500 mt-1 block">Tap to call or message</span>
+        </a>
+
+        <!-- Instagram Card -->
+        <a href="https://www.instagram.com/marycrown_restaurant/" target="_blank" rel="noopener" class="p-5 rounded-xl bg-black/40 border border-yellow-500/20 hover:border-yellow-400/60 transition-colors group">
+          <div class="w-10 h-10 rounded-lg bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-400 mb-3 group-hover:scale-110 transition-transform">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </div>
+          <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold block">Instagram</span>
+          <span class="text-base font-bold text-amber-300 block mt-1">@marycrown_restaurant</span>
+          <span class="text-xs text-slate-500 mt-1 block">Follow for daily specials</span>
+        </a>
+
+        <!-- Email Card -->
+        <a href="mailto:mcrestaurant@yahoo.com" class="p-5 rounded-xl bg-black/40 border border-yellow-500/20 hover:border-yellow-400/60 transition-colors group">
+          <div class="w-10 h-10 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 mb-3 group-hover:scale-110 transition-transform">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold block">Email</span>
+          <span class="text-base font-bold text-amber-300 block mt-1">mcrestaurant@yahoo.com</span>
+          <span class="text-xs text-slate-500 mt-1 block">Catering & party orders</span>
+        </a>
+
+        <!-- Address Card -->
+        <a href="https://maps.google.com/?q=55-Vivekanandha+Street,+Potheri,+603203" target="_blank" rel="noopener" class="p-5 rounded-xl bg-black/40 border border-yellow-500/20 hover:border-yellow-400/60 transition-colors group">
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-3 group-hover:scale-110 transition-transform">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+          </div>
+          <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold block">Address (Potheri)</span>
+          <span class="text-sm font-bold text-amber-300 block mt-1 leading-snug">55-Vivekanandha St, Potheri 603203</span>
+          <span class="text-xs text-slate-500 mt-1 block">Open in Google Maps →</span>
+        </a>
+
+      </div>
+
+      <!-- Delivery Terms Banner -->
+      <div class="mt-8 pt-6 border-t border-yellow-500/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs md:text-sm text-slate-300">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+          <span><strong>Free Home Delivery:</strong> Within 5 km radius in Potheri</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+          <span><strong>Minimum Order:</strong> ₹100</span>
+        </div>
+        <div class="text-amber-400/90 font-semibold px-3 py-1 rounded bg-yellow-500/10 border border-yellow-500/20">
+          Mayonnaise / Parcel Extra Charges
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FLOATING QUICK CATEGORY BUTTON (MOBILE) ==================== -->
+  <button id="floating-category-fab" class="floating-category-fab md:hidden" aria-label="Browse Menu Categories">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+    <span>Menu</span>
+  </button>
+
+  <!-- ==================== MOBILE APP BOTTOM CART BAR ==================== -->
+  <div id="mobile-cart-bar" class="mobile-cart-bar" style="display: none;">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-yellow-500/20 border border-yellow-500/40 flex items-center justify-center text-amber-400">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+        </svg>
+      </div>
+      <div>
+        <div id="mobile-cart-count" class="text-xs font-bold text-slate-300">0 Items</div>
+        <div id="mobile-cart-total" class="text-base font-black text-amber-400 leading-none">₹0</div>
+      </div>
+    </div>
+
+    <button class="cart-open-btn px-4 py-2 rounded-xl bg-gold-gradient text-slate-950 font-extrabold text-xs flex items-center gap-1.5 shadow-md">
+      <span>View Cart</span>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
+  <a href="https://wa.me/917418825826" target="_blank" rel="noopener" class="whatsapp-float-btn gold-glow" title="Chat on WhatsApp">
+    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/>
+    </svg>
+  </a>
+
+  <!-- ==================== BACK TO TOP BUTTON ==================== -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to Top">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"></path>
+    </svg>
+  </button>
+
+  <!-- ==================== CART DRAWER SLIDEOVER ==================== -->
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <div id="cart-drawer" class="cart-drawer">
+    
+    <!-- Drawer Header -->
+    <div class="p-4 border-b border-yellow-500/20 flex items-center justify-between bg-brand-darkest">
+      <div class="flex items-center gap-2">
+        <span class="text-xl font-brand font-black text-gold-gradient tracking-wide">Your Order</span>
+      </div>
+      <button id="cart-close-btn" class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center" aria-label="Close Cart">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Drawer Content / Items List -->
+    <div class="flex-1 overflow-y-auto p-4 space-y-3" id="cart-items-list">
+      <!-- Dynamically populated via app.js -->
+    </div>
+
+    <!-- Order Form & WhatsApp Dispatcher Footer -->
+    <div class="p-4 border-t border-yellow-500/20 bg-brand-darkest space-y-3">
+      
+      <!-- Min Order Progress Notice -->
+      <div id="cart-min-order-notice"></div>
+
+      <!-- Customer Details Input -->
+      <div class="p-3.5 rounded-xl bg-slate-900/95 border border-slate-800 space-y-2.5">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Order & Customer Info</span>
+          <span class="text-[10px] text-slate-400">Saved for next time</span>
+        </div>
+        
+        <!-- Order Type Select -->
+        <div>
+          <label class="text-[11px] text-slate-400 block mb-0.5 font-semibold">Dining Preference</label>
+          <select id="order-type-select" class="w-full px-2.5 py-1.5 bg-slate-950 border border-slate-700 rounded-lg text-xs text-white focus:outline-none focus:border-amber-400 font-semibold">
+            <option value="Delivery">🛵 Home Delivery (Free within 5km)</option>
+            <option value="Dine-in">🍽️ Dine-in at Restaurant</option>
+            <option value="Takeaway">🥡 Takeaway / Self Pickup</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="text-[11px] text-slate-400 block mb-0.5">Your Name</label>
+            <input type="text" id="order-cust-name" placeholder="E.g. Rahul" class="w-full px-2.5 py-1.5 bg-slate-950 border border-slate-700 rounded-lg text-xs text-white focus:outline-none focus:border-amber-400">
+          </div>
+          <div>
+            <label class="text-[11px] text-slate-400 block mb-0.5">Phone Number</label>
+            <input type="tel" id="order-cust-phone" placeholder="9876543210" class="w-full px-2.5 py-1.5 bg-slate-950 border border-slate-700 rounded-lg text-xs text-white focus:outline-none focus:border-amber-400">
+          </div>
+        </div>
+
+        <!-- Dynamic Table No. for Dine-in -->
+        <div id="table-no-container" class="hidden">
+          <label class="text-[11px] text-amber-400 block mb-0.5 font-bold">Table Number</label>
+          <input type="text" id="order-cust-table" placeholder="E.g. Table 4" class="w-full px-2.5 py-1.5 bg-slate-950 border border-amber-500/50 rounded-lg text-xs text-white focus:outline-none focus:border-amber-400">
+        </div>
+
+        <!-- Dynamic Delivery Address for Delivery -->
+        <div id="address-container">
+          <label class="text-[11px] text-slate-400 block mb-0.5">Delivery Address / Room</label>
+          <input type="text" id="order-cust-address" placeholder="55 Vivekanandha St / SRM Hostel / Flat No." class="w-full px-2.5 py-1.5 bg-slate-950 border border-slate-700 rounded-lg text-xs text-white focus:outline-none focus:border-amber-400">
+        </div>
+
+        <div>
+          <label class="text-[11px] text-slate-400 block mb-0.5">Special Requests / Cooking Notes (Optional)</label>
+          <input type="text" id="order-cust-notes" placeholder="Less spicy, extra mayo, cutlery needed..." class="w-full px-2.5 py-1.5 bg-slate-950 border border-slate-700 rounded-lg text-xs text-white focus:outline-none focus:border-amber-400">
+        </div>
+      </div>
+
+      <!-- Bill Breakdown -->
+      <div class="flex items-center justify-between pt-1">
+        <span class="text-sm font-bold text-slate-300">Total Bill</span>
+        <span id="cart-subtotal" class="text-xl font-extrabold text-amber-400 font-brand">₹0</span>
+      </div>
+
+      <!-- Submit Order to WhatsApp -->
+      <button id="whatsapp-order-btn" class="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm md:text-base flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/30 transition-all">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/>
+        </svg>
+        <span>Send Order on WhatsApp</span>
+      </button>
+
+      <p class="text-[11px] text-center text-slate-500">
+        Direct connection to official WhatsApp of Mary Crown (7418825826)
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- ==================== CATEGORY SHEET MODAL (MOBILE JUMP) ==================== -->
+  <div id="category-sheet-modal" class="modal-overlay">
+    <div class="modal-content max-w-sm">
+      <div class="flex items-center justify-between pb-3 border-b border-yellow-500/20 mb-3">
+        <h3 class="font-bold text-base text-gold-gradient font-brand">Menu Categories</h3>
+        <button id="category-sheet-close" class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div id="category-sheet-list" class="space-y-2 max-h-[60vh] overflow-y-auto pr-1">
+        <!-- Dynamically populated via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== VARIANT SELECTION MODAL ==================== -->
+  <div id="variant-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="flex items-start justify-between pb-3 border-b border-yellow-500/20 mb-4">
+        <div>
+          <h3 id="variant-modal-title" class="font-bold text-lg text-slate-100 font-brand">Dish Options</h3>
+          <p id="variant-modal-desc" class="text-xs text-slate-400 mt-0.5">Select your preferred portion or variation</p>
+        </div>
+        <button id="variant-modal-close" class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div id="variant-options-list" class="space-y-2.5">
+        <!-- Variant rows dynamically populated via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MENU IMAGE LIGHTBOX MODAL ==================== -->
+  <div id="menu-image-modal" class="modal-overlay">
+    <div class="modal-content max-w-2xl bg-brand-darkest">
+      <div class="flex items-center justify-between pb-3 border-b border-yellow-500/20 mb-3">
+        <h3 id="menu-modal-title" class="font-bold text-base text-gold-gradient font-brand">Original Printed Menu</h3>
+        <button id="menu-image-modal-close" class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="flex gap-2 mb-3">
+        <button id="open-menu-1-tab" class="flex-1 py-1.5 rounded-lg bg-yellow-500/20 border border-yellow-500/40 text-xs font-bold text-amber-300">Page 1 (Biriyani, Combos, Rice)</button>
+        <button id="open-menu-2-tab" class="flex-1 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-bold text-slate-300">Page 2 (Shawarma, Grill, Curry)</button>
+      </div>
+
+      <div class="overflow-auto max-h-[70vh] rounded-xl border border-slate-800">
+        <img id="menu-modal-image" src="assets/images/menu-1.jpg" alt="Mary Crown Original Menu" class="w-full h-auto">
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TOAST NOTIFICATION ==================== -->
+  <div id="toast" class="toast-notification">
+    <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+    </svg>
+    <span class="toast-message font-medium">Added to cart</span>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-brand-darkest border-t border-yellow-500/20 py-12 px-4 md:px-8 mt-12">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      
+      <div class="flex flex-col sm:flex-row items-center gap-4">
+        <img src="assets/images/logo.png" alt="Mary Crown Restaurant" class="w-14 h-14 object-contain">
+        <div>
+          <h4 class="font-brand font-extrabold text-lg text-gold-gradient uppercase tracking-wider">
+            Mary Crown Restaurant
+          </h4>
+          <p class="text-xs text-slate-400 mt-0.5">Indian • Chinese • Arabian • Tandoori</p>
+          <p class="text-xs text-slate-500 mt-1">55-Vivekanandha Street, Potheri, 603203</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-slate-300">
+        <a href="tel:7418825826" class="hover:text-amber-400 transition-colors">Call: 7418825826</a>
+        <span class="text-slate-700">•</span>
+        <a href="https://wa.me/917418825826" target="_blank" rel="noopener" class="hover:text-amber-400 transition-colors">WhatsApp</a>
+        <span class="text-slate-700">•</span>
+        <a href="https://www.instagram.com/marycrown_restaurant/" target="_blank" rel="noopener" class="hover:text-amber-400 transition-colors">Instagram</a>
+        <span class="text-slate-700">•</span>
+        <a href="mailto:mcrestaurant@yahoo.com" class="hover:text-amber-400 transition-colors">Email</a>
+      </div>
+
+      <div class="text-xs text-slate-500">
+        © 2026 Mary Crown Restaurant. All rights reserved.
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/menuData.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/app.js"></script>
+  
+  <script>
+    // Tab switching for Menu Image Modal
+    const tab1 = document.getElementById("open-menu-1-tab");
+    const tab2 = document.getElementById("open-menu-2-tab");
+    const modalImg = document.getElementById("menu-modal-image");
+    
+    if (tab1 && tab2 && modalImg) {
+      tab1.addEventListener("click", () => {
+        modalImg.src = "assets/images/menu-1.jpg";
+        tab1.className = "flex-1 py-1.5 rounded-lg bg-yellow-500/20 border border-yellow-500/40 text-xs font-bold text-amber-300";
+        tab2.className = "flex-1 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-bold text-slate-300";
+      });
+      tab2.addEventListener("click", () => {
+        modalImg.src = "assets/images/menu-2.jpg";
+        tab2.className = "flex-1 py-1.5 rounded-lg bg-yellow-500/20 border border-yellow-500/40 text-xs font-bold text-amber-300";
+        tab1.className = "flex-1 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-bold text-slate-300";
+      });
+    }
+  </script>
+</body>
+</html>
