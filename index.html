@@ -479,25 +479,25 @@
 
         <div class="grid grid-cols-2 gap-2">
           <div>
-            <label class="text-[11px] text-slate-400 block mb-0.5">Your Name</label>
-            <input type="text" id="order-cust-name" placeholder="E.g. Rahul" class="w-full px-2.5 py-1.5 bg-slate-950 border border-slate-700 rounded-lg text-xs text-white focus:outline-none focus:border-amber-400">
+            <label class="text-[11px] text-slate-300 block mb-0.5 font-semibold">Your Name <span class="text-amber-400 font-bold">*</span></label>
+            <input type="text" id="order-cust-name" placeholder="E.g. Rahul" required class="w-full px-2.5 py-1.5 bg-slate-950 border border-slate-700 rounded-lg text-xs text-white focus:outline-none focus:border-amber-400 transition-colors">
           </div>
           <div>
-            <label class="text-[11px] text-slate-400 block mb-0.5">Phone Number</label>
-            <input type="tel" id="order-cust-phone" placeholder="9876543210" class="w-full px-2.5 py-1.5 bg-slate-950 border border-slate-700 rounded-lg text-xs text-white focus:outline-none focus:border-amber-400">
+            <label class="text-[11px] text-slate-300 block mb-0.5 font-semibold">Mobile Number <span class="text-amber-400 font-bold">*</span></label>
+            <input type="tel" id="order-cust-phone" placeholder="9876543210" required maxlength="15" class="w-full px-2.5 py-1.5 bg-slate-950 border border-slate-700 rounded-lg text-xs text-white focus:outline-none focus:border-amber-400 transition-colors">
           </div>
         </div>
 
         <!-- Dynamic Table No. for Dine-in -->
         <div id="table-no-container" class="hidden">
-          <label class="text-[11px] text-amber-400 block mb-0.5 font-bold">Table Number</label>
-          <input type="text" id="order-cust-table" placeholder="E.g. Table 4" class="w-full px-2.5 py-1.5 bg-slate-950 border border-amber-500/50 rounded-lg text-xs text-white focus:outline-none focus:border-amber-400">
+          <label class="text-[11px] text-amber-400 block mb-0.5 font-bold">Table Number <span class="text-amber-400 font-bold">*</span></label>
+          <input type="text" id="order-cust-table" placeholder="E.g. Table 4" class="w-full px-2.5 py-1.5 bg-slate-950 border border-amber-500/50 rounded-lg text-xs text-white focus:outline-none focus:border-amber-400 transition-colors">
         </div>
 
         <!-- Dynamic Delivery Address for Delivery -->
         <div id="address-container">
-          <label class="text-[11px] text-slate-400 block mb-0.5">Delivery Address / Room</label>
-          <input type="text" id="order-cust-address" placeholder="55 Vivekanandha St / SRM Hostel / Flat No." class="w-full px-2.5 py-1.5 bg-slate-950 border border-slate-700 rounded-lg text-xs text-white focus:outline-none focus:border-amber-400">
+          <label class="text-[11px] text-slate-300 block mb-0.5 font-semibold">Delivery Address / Room <span class="text-amber-400 font-bold">*</span></label>
+          <input type="text" id="order-cust-address" placeholder="55 Vivekanandha St / SRM Hostel / Flat No." required class="w-full px-2.5 py-1.5 bg-slate-950 border border-slate-700 rounded-lg text-xs text-white focus:outline-none focus:border-amber-400 transition-colors">
         </div>
 
         <div>

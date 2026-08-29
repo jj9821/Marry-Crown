@@ -814,16 +814,74 @@ document.addEventListener("DOMContentLoaded", () => {
   function handleWhatsAppOrder() {
     const state = window.cart.getState();
     if (state.items.length === 0) {
-      showToast("Your cart is empty. Please add dishes first!");
+      showToast("⚠️ Your cart is empty. Please add dishes first!");
       return;
     }
 
-    const name = nameInput ? nameInput.value : "";
-    const address = addressInput ? addressInput.value : "";
-    const phone = phoneInput ? phoneInput.value : "";
-    const tableNo = tableInput ? tableInput.value : "";
-    const notes = notesInput ? notesInput.value : "";
+    const name = nameInput ? nameInput.value.trim() : "";
+    const phone = phoneInput ? phoneInput.value.trim() : "";
+    const address = addressInput ? addressInput.value.trim() : "";
+    const tableNo = tableInput ? tableInput.value.trim() : "";
+    const notes = notesInput ? notesInput.value.trim() : "";
     const orderType = orderTypeSelect ? orderTypeSelect.value : "Delivery";
+
+    // Clear previous error styles
+    [nameInput, phoneInput, addressInput, tableInput].forEach(inp => {
+      if (inp) {
+        inp.classList.remove("border-red-500", "ring-1", "ring-red-500");
+      }
+    });
+
+    // 1. Mandatory Name Validation
+    if (!name) {
+      showToast("⚠️ Please enter your Name to place the order.");
+      if (nameInput) {
+        nameInput.classList.add("border-red-500", "ring-1", "ring-red-500");
+        nameInput.focus();
+      }
+      return;
+    }
+
+    // 2. Mandatory Mobile Number Validation
+    const phoneDigits = phone.replace(/\D/g, "");
+    if (!phone || phoneDigits.length < 10) {
+      showToast("⚠️ Please enter a valid 10-digit Mobile Number.");
+      if (phoneInput) {
+        phoneInput.classList.add("border-red-500", "ring-1", "ring-red-500");
+        phoneInput.focus();
+      }
+      return;
+    }
+
+    // 3. Mandatory Address / Table Number Validation
+    if (orderType === "Dine-in") {
+      if (!tableNo) {
+        showToast("⚠️ Please enter your Table Number for Dine-in.");
+        if (tableInput) {
+          tableInput.classList.add("border-red-500", "ring-1", "ring-red-500");
+          tableInput.focus();
+        }
+        return;
+      }
+    } else {
+      if (!address) {
+        showToast("⚠️ Please enter your Delivery Address / Room No.");
+        if (addressInput) {
+          addressInput.classList.add("border-red-500", "ring-1", "ring-red-500");
+          addressInput.focus();
+        }
+        return;
+      }
+    }
+
+    // Save profile to localStorage for seamless repeat orders
+    window.cart.saveCustomerProfile({
+      name,
+      phone,
+      address,
+      tableNo,
+      orderType
+    });
 
     const url = window.cart.generateWhatsAppUrl({
       name,
@@ -854,6 +912,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       updateStickyDimensions();
     }, { passive: true });
+
+        // Clear input error styles on user typing
+    [nameInput, phoneInput, addressInput, tableInput].forEach((inp) => {
+      if (inp) {
+        inp.addEventListener("input", () => {
+          inp.classList.remove("border-red-500", "ring-1", "ring-red-500");
+        });
+      }
+    });
 
     // Order Type Switcher
     if (orderTypeSelect) {
