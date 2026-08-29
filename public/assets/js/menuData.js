@@ -43,14 +43,6 @@ const CATEGORIES = [
     imageAlt: "Fragrant Hyderabadi chicken dum biriyani served in a dark royal metal handi with saffron and fried onions"
   },
   { 
-    id: "combos", 
-    name: "Special Combos", 
-    tagline: "Value Meals • Complete Feast",
-    description: "Value-packed meals served with signature biriyanis, sides & beverages",
-    image: "assets/images/sections/combos.webp",
-    imageAlt: "Grand restaurant combo meal with chicken biriyani, crispy chicken 65 and chilled beverage"
-  },
-  { 
     id: "shawarma", 
     name: "Shawarma", 
     tagline: "Freshly Grilled • Rolled & Loaded",
@@ -117,35 +109,15 @@ const CATEGORIES = [
 ];
 
 const MENU_ITEMS = [
-  // ==================== BIRIYANI ====================
   {
     id: "bir-1",
     name: "Hyderabadi Chicken Biryani",
     category: "biryani",
     subCategory: "Biriyani",
     isVeg: false,
-    price: 170,
+    price: 130,
     popular: true,
     description: "Classic fragrant Hyderabadi dum biryani cooked with tender chicken and aromatic spices."
-  },
-  {
-    id: "bir-2",
-    name: "Mutton Biriyani",
-    category: "biryani",
-    subCategory: "Biriyani",
-    isVeg: false,
-    price: 220,
-    popular: true,
-    description: "Succulent pieces of spiced tender mutton layered with aromatic basmati rice."
-  },
-  {
-    id: "bir-3",
-    name: "Prawn Biriyani",
-    category: "biryani",
-    subCategory: "Biriyani",
-    isVeg: false,
-    price: 190,
-    description: "Fresh juicy prawns simmered in coastal masala and layered with dum biryani rice."
   },
   {
     id: "bir-4",
@@ -153,7 +125,7 @@ const MENU_ITEMS = [
     category: "biryani",
     subCategory: "Biriyani",
     isVeg: false,
-    price: 180,
+    price: 150,
     popular: true,
     description: "Signature dum biryani rice topped with crispy spicy Chicken 65."
   },
@@ -177,84 +149,6 @@ const MENU_ITEMS = [
     price: 100,
     description: "Richly flavored aromatic kuska / biryani rice cooked in seasoned broth."
   },
-
-  // ==================== SPECIAL COMBOS ====================
-  {
-    id: "combo-1",
-    name: "Combo 1",
-    category: "combos",
-    subCategory: "Combos",
-    isVeg: false,
-    price: 220,
-    badge: "Bestseller",
-    itemsIncluded: ["Chicken Biriyani", "Chicken 65", "Coca Cola"],
-    description: "Chicken Biriyani + Chicken 65 + Coca Cola"
-  },
-  {
-    id: "combo-2",
-    name: "Combo 2",
-    category: "combos",
-    subCategory: "Combos",
-    isVeg: false,
-    price: 170,
-    itemsIncluded: ["Plain Biriyani", "Chicken 65", "Coca Cola"],
-    description: "Plain Biriyani + Chicken 65 + Coca Cola"
-  },
-  {
-    id: "combo-3",
-    name: "Combo 3",
-    category: "combos",
-    subCategory: "Combos",
-    isVeg: false,
-    price: 340,
-    badge: "Popular",
-    itemsIncluded: ["Mutton Biriyani", "Chicken 65", "Coca Cola"],
-    description: "Mutton Biriyani + Chicken 65 + Coca Cola"
-  },
-  {
-    id: "combo-4",
-    name: "Combo 4",
-    category: "combos",
-    subCategory: "Combos",
-    isVeg: false,
-    price: 400,
-    badge: "Feast for 2",
-    itemsIncluded: ["Plain Biriyani (2)", "Grill Chicken (Half)", "Coca Cola (2)"],
-    description: "Plain Biriyani 2 + Grill Chicken Half + Coca Cola 2"
-  },
-  {
-    id: "combo-5",
-    name: "Combo 5",
-    category: "combos",
-    subCategory: "Combos",
-    isVeg: false,
-    price: 400,
-    badge: "Feast for 2",
-    itemsIncluded: ["Plain Biriyani (2)", "Tandoori Chicken (Half)", "Coca Cola (2)"],
-    description: "Plain Biriyani 2 + Tandoori Chicken Half + Coca Cola 2"
-  },
-  {
-    id: "combo-6",
-    name: "Combo 6",
-    category: "combos",
-    subCategory: "Combos",
-    isVeg: false,
-    price: 240,
-    itemsIncluded: ["Chicken Noodles", "Chilli Chicken", "Coca Cola"],
-    description: "Chicken Noodles + Chilli Chicken + Coca Cola"
-  },
-  {
-    id: "combo-7",
-    name: "Combo 7",
-    category: "combos",
-    subCategory: "Combos",
-    isVeg: false,
-    price: 230,
-    itemsIncluded: ["Chicken Fried Rice", "Chilli Chicken", "Coca Cola"],
-    description: "Chicken Fried Rice + Chilli Chicken + Coca Cola"
-  },
-
-  // ==================== SHAWARMA ====================
   {
     id: "shw-1",
     name: "Shawarma",
@@ -484,8 +378,6 @@ const MENU_ITEMS = [
     price: 160,
     description: "Special loaded chicken with crunchy pickled jalapeno slices."
   },
-
-  // ==================== GRILL & TANDOORI ====================
   {
     id: "grl-1",
     name: "Grilled Chicken",
@@ -594,8 +486,6 @@ const MENU_ITEMS = [
     badge: "Platter",
     description: "An assorted platter of our chef finest tandoori kebab selections."
   },
-
-  // ==================== STARTERS (VEG) ====================
   { id: "str-v-1", name: "Gobi 65", category: "starters", subCategory: "Veg Starters", isVeg: true, price: 115, popular: true, description: "Crisp fried cauliflower florets tossed with curry leaves, chili, and spices." },
   { id: "str-v-2", name: "Paneer 65", category: "starters", subCategory: "Veg Starters", isVeg: true, price: 135, popular: true, description: "Fresh cottage cheese cubes batter-fried and tossed in South Indian 65 seasoning." },
   { id: "str-v-3", name: "Mushroom 65", category: "starters", subCategory: "Veg Starters", isVeg: true, price: 125, description: "Golden fried button mushrooms tossed in spicy aromatic herbs." },
@@ -612,42 +502,26 @@ const MENU_ITEMS = [
   { id: "str-v-14", name: "Mushroom Manchurian", category: "starters", subCategory: "Veg Starters", isVeg: true, price: 165, description: "Golden fried mushrooms coated in savory Indo-Chinese Manchurian sauce." },
   { id: "str-v-15", name: "Honey Chilli Potato", category: "starters", subCategory: "Veg Starters", isVeg: true, price: 170, popular: true, description: "Crisp fried potato fingers glazed with sweet honey, chili sauce, and sesame seeds." },
   { id: "str-v-16", name: "Paneer Tikka", category: "starters", subCategory: "Veg Starters", isVeg: true, price: 170, description: "Charcoal grilled paneer cubes marinated in yogurt and tandoori spices." },
-
-  // ==================== STARTERS (NON-VEG) ====================
   { id: "str-nv-1", name: "Chicken 65", category: "starters", subCategory: "Non-Veg Starters", isVeg: false, price: 120, popular: true, badge: "Top Starter", description: "All-time favorite Chennai-style deep-fried spicy chicken with crispy curry leaves." },
-  { id: "str-nv-2", name: "Prawn 65", category: "starters", subCategory: "Non-Veg Starters", isVeg: false, price: 165, description: "Fresh coastal prawns marinated in 65 spice blend and fried golden crisp." },
   { id: "str-nv-3", name: "Fish Finger", category: "starters", subCategory: "Non-Veg Starters", isVeg: false, price: 170, description: "Crumb-coated delicate fish strips fried crisp, served with dipping sauce." },
   { id: "str-nv-4", name: "Chicken Lollipop", category: "starters", subCategory: "Non-Veg Starters", isVeg: false, price: 140, popular: true, description: "Frenched chicken winglets marinated and deep-fried to crispy perfection." },
   { id: "str-nv-5", name: "Chicken Lollipop Saucy", category: "starters", subCategory: "Non-Veg Starters", isVeg: false, price: 165, description: "Crispy chicken lollipops generously tossed in fiery sweet & spicy sauce." },
   { id: "str-nv-6", name: "Dragon Chicken", category: "starters", subCategory: "Non-Veg Starters", isVeg: false, price: 160, popular: true, description: "Crispy chicken strips tossed with red chilies, cashews, and fiery dragon sauce." },
   { id: "str-nv-7", name: "Chicken Pepper Fry", category: "starters", subCategory: "Non-Veg Starters", isVeg: false, price: 165, description: "Tender chicken pieces pan-roasted with freshly crushed Tellicherry black pepper." },
-  { id: "str-nv-8", name: "Prawn Pepper Fry", category: "starters", subCategory: "Non-Veg Starters", isVeg: false, price: 185, description: "Juicy prawns roasted with spicy ground pepper and caramelized onions." },
   { id: "str-nv-9", name: "Chiili Chicken", category: "starters", subCategory: "Non-Veg Starters", isVeg: false, price: 160, popular: true, description: "Classic Indo-Chinese dry chili chicken tossed with capsicum, garlic, and green chilies." },
-  { id: "str-nv-10", name: "Chilli prawn", category: "starters", subCategory: "Non-Veg Starters", isVeg: false, price: 180, description: "Fresh prawns tossed with peppers and scallions in hot chili soy sauce." },
   { id: "str-nv-11", name: "Chicken Manchurian", category: "starters", subCategory: "Non-Veg Starters", isVeg: false, price: 170, description: "Fried chicken bites tossed with ginger, garlic, cilantro, and savory soya glaze." },
-  { id: "str-nv-12", name: "Prawn Manchurian", category: "starters", subCategory: "Non-Veg Starters", isVeg: false, price: 180, description: "Crispy fried prawns tossed in tangy ginger-garlic Manchurian seasoning." },
   { id: "str-nv-13", name: "Chicken Drumstick", category: "starters", subCategory: "Non-Veg Starters", isVeg: false, price: 165, description: "Spiced marinated chicken drumsticks fried to golden crispy brown." },
   { id: "str-nv-14", name: "Garlic Chicken", category: "starters", subCategory: "Non-Veg Starters", isVeg: false, price: 170, description: "Pan-fried chicken tossed with heaps of aromatic roasted garlic and scallions." },
-  { id: "str-nv-15", name: "Garlic Prawn", category: "starters", subCategory: "Non-Veg Starters", isVeg: false, price: 190, description: "Succulent prawns sautéed with golden roasted garlic and oriental herbs." },
   { id: "str-nv-16", name: "Honey Chilli Chicken", category: "starters", subCategory: "Non-Veg Starters", isVeg: false, price: 170, description: "Crispy chicken tossed in sweet natural honey and spicy red chili glaze." },
-  { id: "str-nv-17", name: "Prawn Tawa Fry", category: "starters", subCategory: "Non-Veg Starters", isVeg: false, price: 190, description: "Fresh coastal prawns seared on a hot iron tawa with robust South Indian masala." },
-
-  // ==================== CHINESE GRAVY ====================
-  // Veg Gravies
   { id: "cgr-v-1", name: "Gobi Manchurian", category: "chinese-gravy", subCategory: "Veg Chinese Gravy", isVeg: true, price: 150, description: "Cauliflower florets in a rich, tangy ginger-garlic Indo-Chinese gravy." },
   { id: "cgr-v-2", name: "Paneer Manchurian", category: "chinese-gravy", subCategory: "Veg Chinese Gravy", isVeg: true, price: 170, description: "Soft paneer cubes simmered in savory Manchurian sauce." },
   { id: "cgr-v-3", name: "Mushroom Manchurian", category: "chinese-gravy", subCategory: "Veg Chinese Gravy", isVeg: true, price: 170, description: "Fresh button mushrooms cooked in thick Manchurian gravy." },
   { id: "cgr-v-4", name: "Chilli Paneer", category: "chinese-gravy", subCategory: "Veg Chinese Gravy", isVeg: true, price: 160, description: "Paneer cubes and capsicum in spicy soy chili gravy, perfect with fried rice." },
   { id: "cgr-v-5", name: "Chilli Mushroom", category: "chinese-gravy", subCategory: "Veg Chinese Gravy", isVeg: true, price: 160, description: "Mushrooms in a flavorful, spicy garlic-chili gravy." },
   { id: "cgr-v-6", name: "Chilli Gobi", category: "chinese-gravy", subCategory: "Veg Chinese Gravy", isVeg: true, price: 150, description: "Crispy gobi in hot chili and soya gravy." },
-  // Non-Veg Gravies
   { id: "cgr-nv-1", name: "Chilli Chicken Gravy", category: "chinese-gravy", subCategory: "Non-Veg Chinese Gravy", isVeg: false, price: 150, popular: true, description: "Tender chicken cooked with green chilies, peppers, and savory soy gravy." },
   { id: "cgr-nv-2", name: "Chicken Manchurian Gravy", category: "chinese-gravy", subCategory: "Non-Veg Chinese Gravy", isVeg: false, price: 150, description: "Fried chicken bites in classic ginger-garlic and coriander Manchurian gravy." },
   { id: "cgr-nv-3", name: "Garlic Chicken Gravy", category: "chinese-gravy", subCategory: "Non-Veg Chinese Gravy", isVeg: false, price: 160, description: "Chicken cooked in a rich, deeply aromatic roasted garlic gravy." },
-  { id: "cgr-nv-4", name: "Chilli Prawn Gravy", category: "chinese-gravy", subCategory: "Non-Veg Chinese Gravy", isVeg: false, price: 170, description: "Fresh prawns simmered in fiery Indo-Chinese chili garlic gravy." },
-
-  // ==================== RICE & NOODLES ====================
-  // Veg Rice & Noodles
   {
     id: "rn-v-1",
     name: "Vegetable",
@@ -813,8 +687,6 @@ const MENU_ITEMS = [
     price: 180,
     description: "Combination of paneer, mushroom, baby corn, and fresh garden vegetables."
   },
-
-  // Non-Veg Rice & Noodles
   {
     id: "rn-nv-1",
     name: "Chicken",
@@ -830,36 +702,6 @@ const MENU_ITEMS = [
     price: 120,
     popular: true,
     description: "Tender shredded chicken wok-tossed with egg, vegetables, and seasoned rice or noodles."
-  },
-  {
-    id: "rn-nv-2",
-    name: "Mutton",
-    category: "rice-noodles",
-    subCategory: "Non-Veg Rice & Noodles",
-    isVeg: false,
-    hasVariants: true,
-    variantType: "RICE / NOODLES",
-    variants: [
-      { name: "Rice", price: 180 },
-      { name: "Noodles", price: 190 }
-    ],
-    price: 180,
-    description: "Tender seasoned minced mutton tossed with egg and aromatic basmati rice or noodles."
-  },
-  {
-    id: "rn-nv-3",
-    name: "Prawn",
-    category: "rice-noodles",
-    subCategory: "Non-Veg Rice & Noodles",
-    isVeg: false,
-    hasVariants: true,
-    variantType: "RICE / NOODLES",
-    variants: [
-      { name: "Rice", price: 160 },
-      { name: "Noodles", price: 180 }
-    ],
-    price: 160,
-    description: "Fresh coastal prawns and egg stir-fried with fragrant rice or noodles."
   },
   {
     id: "rn-nv-4",
@@ -891,36 +733,6 @@ const MENU_ITEMS = [
     price: 130,
     popular: true,
     description: "Fiery Schezwan style chicken and egg fried rice or noodles."
-  },
-  {
-    id: "rn-nv-6",
-    name: "Mutton Schezwan",
-    category: "rice-noodles",
-    subCategory: "Non-Veg Rice & Noodles",
-    isVeg: false,
-    hasVariants: true,
-    variantType: "RICE / NOODLES",
-    variants: [
-      { name: "Rice", price: 185 },
-      { name: "Noodles", price: 195 }
-    ],
-    price: 185,
-    description: "Spicy Schezwan sauce tossed with minced mutton, egg, and rice or noodles."
-  },
-  {
-    id: "rn-nv-7",
-    name: "Prawn Schezwan",
-    category: "rice-noodles",
-    subCategory: "Non-Veg Rice & Noodles",
-    isVeg: false,
-    hasVariants: true,
-    variantType: "RICE / NOODLES",
-    variants: [
-      { name: "Rice", price: 185 },
-      { name: "Noodles", price: 195 }
-    ],
-    price: 185,
-    description: "Juicy prawns tossed in fiery Schezwan chili paste."
   },
   {
     id: "rn-nv-8",
@@ -968,23 +780,6 @@ const MENU_ITEMS = [
     description: "Singapore curry-spiced chicken, egg, and vegetables."
   },
   {
-    id: "rn-nv-11",
-    name: "Mixed",
-    category: "rice-noodles",
-    subCategory: "Non-Veg Rice & Noodles",
-    isVeg: false,
-    hasVariants: true,
-    variantType: "RICE / NOODLES",
-    badge: "Special",
-    variants: [
-      { name: "Rice", price: 200 },
-      { name: "Noodles", price: 210 }
-    ],
-    price: 200,
-    popular: true,
-    description: "Supreme mix of chicken, mutton, prawn, and egg in delicious seasoned wok rice or noodles."
-  },
-  {
     id: "rn-nv-12",
     name: "Dragon Chicken",
     category: "rice-noodles",
@@ -999,8 +794,6 @@ const MENU_ITEMS = [
     price: 190,
     description: "Fiery crispy dragon chicken pieces tossed with flavorful wok rice or noodles."
   },
-
-  // ==================== INDIAN BREADS ====================
   { id: "brd-1", name: "Naan", category: "indian-breads", isVeg: true, price: 40, description: "Classic clay-oven baked soft refined wheat flatbread." },
   { id: "brd-2", name: "Butter Naan", category: "indian-breads", isVeg: true, price: 50, popular: true, description: "Freshly baked tandoori naan brushed generously with pure butter." },
   { id: "brd-3", name: "Garlic Naan", category: "indian-breads", isVeg: true, price: 55, popular: true, description: "Tandoori naan topped with roasted minced garlic and fresh coriander." },
@@ -1022,8 +815,6 @@ const MENU_ITEMS = [
   { id: "brd-19", name: "Paneer Paratha", category: "indian-breads", isVeg: true, price: 85, description: "Tawa paratha generously stuffed with spiced paneer." },
   { id: "brd-20", name: "Pudina Paratha", category: "indian-breads", isVeg: true, price: 60, description: "Layered paratha scented with dried mint leaves." },
   { id: "brd-21", name: "Tandoori Paratha", category: "indian-breads", isVeg: true, price: 75, description: "Crispy flaky whole wheat paratha baked in the clay tandoor." },
-
-  // ==================== MAIN COURSE (VEG) ====================
   { id: "mc-v-1", name: "Aloo Mutter", category: "main-course", subCategory: "Veg Main Course", isVeg: true, price: 119, description: "Potatoes and tender green peas simmered in a spiced onion-tomato curry." },
   { id: "mc-v-2", name: "Aloo Gobi Masala", category: "main-course", subCategory: "Veg Main Course", isVeg: true, price: 129, description: "Classic homestyle potatoes and cauliflower tossed in aromatic Indian spices." },
   { id: "mc-v-3", name: "Dum Aloo", category: "main-course", subCategory: "Veg Main Course", isVeg: true, price: 169, description: "Baby potatoes slow-cooked in a rich, velvety Kashmiri yogurt gravy." },
@@ -1042,8 +833,6 @@ const MENU_ITEMS = [
   { id: "mc-v-16", name: "Dal Fry", category: "main-course", subCategory: "Veg Main Course", isVeg: true, price: 159, description: "Hearty cooked lentils pan-fried with onions, tomatoes, ginger, and green chilies." },
   { id: "mc-v-17", name: "Green Peas Masala", category: "main-course", subCategory: "Veg Main Course", isVeg: true, price: 149, description: "Tender green peas cooked in a rich, mildly spiced gravy." },
   { id: "mc-v-18", name: "Mixed Veg Curry", category: "main-course", subCategory: "Veg Main Course", isVeg: true, price: 169, description: "Assortment of fresh garden vegetables simmered in an aromatic curry." },
-
-  // ==================== MAIN COURSE (NON-VEG) ====================
   { id: "mc-nv-1", name: "Egg Masala", category: "main-course", subCategory: "Non-Veg Main Course", isVeg: false, price: 119, description: "Boiled eggs simmered in a spiced onion, tomato, and coriander gravy." },
   { id: "mc-nv-2", name: "Egg Keema Masala", category: "main-course", subCategory: "Non-Veg Main Course", isVeg: false, price: 129, description: "Grated and minced eggs cooked in a savory, robust masala sauce." },
   { id: "mc-nv-3", name: "Chicken Masala", category: "main-course", subCategory: "Non-Veg Main Course", isVeg: false, price: 136, popular: true, description: "Tender chicken pieces cooked in a traditional homestyle spiced gravy." },
@@ -1058,32 +847,17 @@ const MENU_ITEMS = [
   { id: "mc-nv-12", name: "Chicken Tikka Masala", category: "main-course", subCategory: "Non-Veg Main Course", isVeg: false, price: 179, popular: true, description: "Smoky tandoori chicken tikka pieces in a rich, creamy tomato gravy." },
   { id: "mc-nv-13", name: "Butter Chicken Masala", category: "main-course", subCategory: "Non-Veg Main Course", isVeg: false, price: 179, popular: true, description: "Juicy chicken in a silky, mildly sweet buttery makhani sauce with kasuri methi." },
   { id: "mc-nv-14", name: "Malabar Chicken Masala", category: "main-course", subCategory: "Non-Veg Main Course", isVeg: false, price: 169, description: "Authentic coastal Kerala chicken curry enriched with coconut milk." },
-  { id: "mc-nv-15", name: "Mutton Masala", category: "main-course", subCategory: "Non-Veg Main Course", isVeg: false, price: 249, popular: true, description: "Slow-braised tender mutton cooked in a deeply flavorful brown onion gravy." },
-  { id: "mc-nv-16", name: "Mutton Pepper Masala", category: "main-course", subCategory: "Non-Veg Main Course", isVeg: false, price: 259, description: "Tender bone-in mutton tossed in fiery Tellicherry black pepper masala." },
-  { id: "mc-nv-17", name: "Mary Crown Spl Mutton Masala", category: "main-course", subCategory: "Non-Veg Main Course", isVeg: false, price: 259, badge: "Chef Special", description: "Our house signature mutton curry prepared with chef secret spice blend." },
-  { id: "mc-nv-18", name: "Spl Butter Mutton Masala", category: "main-course", subCategory: "Non-Veg Main Course", isVeg: false, price: 269, description: "Velvety butter-infused rich mutton gravy cooked to perfection." },
-  { id: "mc-nv-19", name: "Kadai Mutton Masala", category: "main-course", subCategory: "Non-Veg Main Course", isVeg: false, price: 269, description: "Tender mutton pieces sautéed with crushed kadai coriander and bell peppers." },
-  { id: "mc-nv-20", name: "Chettinad Mutton Masala", category: "main-course", subCategory: "Non-Veg Main Course", isVeg: false, price: 269, description: "Fiery Karaikudi style mutton curry with roasted coconut and star anise." },
-  { id: "mc-nv-21", name: "Prawn Masala", category: "main-course", subCategory: "Non-Veg Main Course", isVeg: false, price: 239, description: "Plump fresh prawns cooked in a spiced coastal onion-tomato gravy." },
-  { id: "mc-nv-22", name: "Prawn Chettinad", category: "main-course", subCategory: "Non-Veg Main Course", isVeg: false, price: 269, description: "Prawns simmered in spicy Chettinad peppercorn and coconut gravy." },
-  { id: "mc-nv-23", name: "Prawn Hyderabadi Masala", category: "main-course", subCategory: "Non-Veg Main Course", isVeg: false, price: 269, description: "Zesty Hyderabadi prawn curry with fresh mint, cilantro, and green chilies." },
-  { id: "mc-nv-24", name: "Kadai Prawn", category: "main-course", subCategory: "Non-Veg Main Course", isVeg: false, price: 269, description: "Fresh juicy prawns wok-tossed with capsicum and aromatic kadai masala." },
-
-  // ==================== SOUPS ====================
-  // Veg Soups
   { id: "soup-v-1", name: "Tomato Soup", category: "soups", subCategory: "Veg Soups", isVeg: true, price: 70, description: "Silky ripe tomato soup with butter, herbs, and crispy croutons." },
   { id: "soup-v-2", name: "Veg Clear Soup", category: "soups", subCategory: "Veg Soups", isVeg: true, price: 55, description: "Light, nourishing broth loaded with diced garden vegetables." },
   { id: "soup-v-3", name: "Veg Hot and Sour Soup", category: "soups", subCategory: "Veg Soups", isVeg: true, price: 80, description: "Tangy and spicy Indo-Chinese soup with shredded veggies and mushrooms." },
   { id: "soup-v-4", name: "Veg Manchow Soup", category: "soups", subCategory: "Veg Soups", isVeg: true, price: 80, popular: true, description: "Savory garlic-infused Chinese soup served with crispy fried noodles." },
   { id: "soup-v-5", name: "Sweet Corn Soup", category: "soups", subCategory: "Veg Soups", isVeg: true, price: 90, description: "Comforting creamy soup with sweet American corn kernels and vegetables." },
   { id: "soup-v-6", name: "Mushroom Soup", category: "soups", subCategory: "Veg Soups", isVeg: true, price: 90, description: "Warm, earthy broth prepared with fresh sliced button mushrooms." },
-  // Non-Veg Soups
   { id: "soup-nv-1", name: "Chicken Clear Soup", category: "soups", subCategory: "Non-Veg Soups", isVeg: false, price: 80, description: "Delicate and wholesome simmered chicken broth with shredded chicken." },
   { id: "soup-nv-2", name: "Chicken Hot and Sour Soup", category: "soups", subCategory: "Non-Veg Soups", isVeg: false, price: 100, popular: true, description: "Spicy and tangy dark chicken broth with egg ribbons and vegetables." },
   { id: "soup-nv-3", name: "Chicken Pepper Soup", category: "soups", subCategory: "Non-Veg Soups", isVeg: false, price: 120, popular: true, description: "Traditional hot chicken soup infused with freshly crushed black pepper." },
   { id: "soup-nv-4", name: "Sweet Corn Chicken Soup", category: "soups", subCategory: "Non-Veg Soups", isVeg: false, price: 125, description: "Rich sweet corn broth with tender minced chicken and egg drops." },
-  { id: "soup-nv-5", name: "Chicken Manchow Soup", category: "soups", subCategory: "Non-Veg Soups", isVeg: false, price: 125, popular: true, description: "Hearty spicy chicken soup topped with golden crispy fried noodles." },
-  { id: "soup-nv-6", name: "Mutton Pepper Soup", category: "soups", subCategory: "Non-Veg Soups", isVeg: false, price: 180, badge: "Chef Special", description: "Rich bone-marrow mutton soup slow-simmered with crushed black pepper & herbs." }
+  { id: "soup-nv-5", name: "Chicken Manchow Soup", category: "soups", subCategory: "Non-Veg Soups", isVeg: false, price: 125, popular: true, description: "Hearty spicy chicken soup topped with golden crispy fried noodles." }
 ];
 
 if (typeof window !== "undefined") {
