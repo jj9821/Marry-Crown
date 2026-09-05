@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
     categorySheetList.innerHTML = "";
 
     CATEGORIES.forEach((cat) => {
-      const count = MENU_ITEMS.filter(i => i.category === cat.id).length;
+      const currentItems = (window.MENU_ITEMS || MENU_ITEMS);\n      const count = currentItems.filter(i => i.category === cat.id).length;
       const row = document.createElement("button");
       row.className = "w-full flex items-center justify-between p-3.5 rounded-xl bg-slate-900/80 border border-yellow-500/15 hover:border-yellow-500/50 hover:bg-yellow-500/10 text-left transition-all group";
       row.innerHTML = `
@@ -239,7 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let totalVisibleItems = 0;
 
     CATEGORIES.forEach((cat) => {
-      const catItems = MENU_ITEMS.filter((item) => {
+      const currentItems = (window.MENU_ITEMS || MENU_ITEMS);\n    const catItems = currentItems.filter((item) => {
         if (item.category !== cat.id) return false;
 
         // Diet filter
@@ -363,7 +363,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const card = document.createElement("div");
     const isCombo = item.category === "combos";
     const isBiryani = item.category === "biryani";
+    const isAvailable = item.available !== false;
+    
     card.className = isCombo ? "combo-card" : isBiryani ? "menu-card biryani-card" : "menu-card";
+    if (!isAvailable) {
+      card.classList.add("opacity-75", "border-slate-800");
+    }
     card.dataset.itemId = item.id;
 
     // Diet badge
@@ -373,9 +378,11 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
 
-    // Highlight Badges
+    // Highlight Badges & Out of Stock Status
     let badgeHtml = "";
-    if (item.badge) {
+    if (!isAvailable) {
+      badgeHtml = `<span class="px-2 py-0.5 rounded bg-red-950/90 text-red-400 border border-red-500/40 text-[10px] font-extrabold uppercase tracking-wider">Sold Out</span>`;
+    } else if (item.badge) {
       badgeHtml = `<span class="badge-gold">${item.badge}</span>`;
     }
 
@@ -444,7 +451,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // Quantity / Action Button
     const totalQty = window.cart.getTotalItemQuantity(item.id);
     let actionBtnHtml = "";
-    if (item.hasVariants) {
+    if (!isAvailable) {
+      actionBtnHtml = `
+        <button disabled class="px-3.5 py-1.5 rounded-lg bg-slate-800/80 text-slate-500 font-bold text-xs border border-slate-700/60 cursor-not-allowed">
+          Sold Out
+        </button>
+      `;
+    } else if (item.hasVariants) {
       actionBtnHtml = `
         <button class="btn-add-primary open-variant-modal-btn" data-item-id="${item.id}">
           <span>Options</span>
@@ -901,6 +914,21 @@ document.addEventListener("DOMContentLoaded", () => {
      EVENT LISTENERS & CONTROLLERS
      ------------------------------------------------------------- */
   function setupEventListeners() {
+    // Listen for real-time menu updates from Owner Admin Portal
+    window.addEventListener("menu:updated", () => {
+      renderMenu();
+      initCategorySheet();
+    });
+    window.addEventListener("storage", (e) => {
+      if (e.key === "mary_crown_menu_custom_v1") {
+        if (typeof window.loadStoredMenu === "function") {
+          window.MENU_ITEMS = window.loadStoredMenu();
+        }
+        renderMenu();
+        initCategorySheet();
+      }
+    });
+
     // Header Scroll Effect & Dimensions check
     window.addEventListener("scroll", () => {
       if (window.scrollY > 40) {

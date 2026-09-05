@@ -108,7 +108,7 @@ const CATEGORIES = [
   }
 ];
 
-const MENU_ITEMS = [
+const DEFAULT_MENU_ITEMS = [
   {
     id: "bir-1",
     name: "Hyderabadi Chicken Biryani",
@@ -860,8 +860,68 @@ const MENU_ITEMS = [
   { id: "soup-nv-5", name: "Chicken Manchow Soup", category: "soups", subCategory: "Non-Veg Soups", isVeg: false, price: 125, popular: true, description: "Hearty spicy chicken soup topped with golden crispy fried noodles." }
 ];
 
+const MENU_STORAGE_KEY = "mary_crown_menu_custom_v1";
+
+function loadStoredMenu() {
+  try {
+    if (typeof localStorage !== "undefined") {
+      const stored = localStorage.getItem(MENU_STORAGE_KEY);
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed;
+        }
+      }
+    }
+  } catch (e) {
+    console.warn("Could not load custom menu from localStorage:", e);
+  }
+  return DEFAULT_MENU_ITEMS;
+}
+
+let MENU_ITEMS = loadStoredMenu();
+
+function saveCustomMenu(newItems) {
+  try {
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem(MENU_STORAGE_KEY, JSON.stringify(newItems));
+    }
+    MENU_ITEMS = newItems;
+    if (typeof window !== "undefined") {
+      window.MENU_ITEMS = newItems;
+      window.dispatchEvent(new CustomEvent("menu:updated", { detail: newItems }));
+    }
+    return true;
+  } catch (e) {
+    console.error("Failed to save menu:", e);
+    return false;
+  }
+}
+
+function resetCustomMenu() {
+  try {
+    if (typeof localStorage !== "undefined") {
+      localStorage.removeItem(MENU_STORAGE_KEY);
+    }
+    MENU_ITEMS = JSON.parse(JSON.stringify(DEFAULT_MENU_ITEMS));
+    if (typeof window !== "undefined") {
+      window.MENU_ITEMS = MENU_ITEMS;
+      window.dispatchEvent(new CustomEvent("menu:updated", { detail: MENU_ITEMS }));
+    }
+    return true;
+  } catch (e) {
+    console.error("Failed to reset menu:", e);
+    return false;
+  }
+}
+
 if (typeof window !== "undefined") {
   window.RESTAURANT_INFO = RESTAURANT_INFO;
   window.CATEGORIES = CATEGORIES;
+  window.DEFAULT_MENU_ITEMS = DEFAULT_MENU_ITEMS;
   window.MENU_ITEMS = MENU_ITEMS;
+  window.loadStoredMenu = loadStoredMenu;
+  window.saveCustomMenu = saveCustomMenu;
+  window.resetCustomMenu = resetCustomMenu;
+  window.MENU_STORAGE_KEY = MENU_STORAGE_KEY;
 }

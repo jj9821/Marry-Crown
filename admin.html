@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Mary Crown Restaurant | Owner Admin Portal</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#06080B">
+  
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              gold: "#F59E0B",
+              darkGold: "#D97706",
+              lightGold: "#FDE68A",
+              dark: "#0A0D12",
+              darkest: "#06080B",
+              surface: "#10151E",
+              surfaceElevated: "#161D2A"
+            }
+          },
+          fontFamily: {
+            brand: ["Cinzel", "Georgia", "serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* Admin Specific Styling */
+    .admin-item-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all var(--transition-smooth);
+    }
+    .admin-item-card:hover {
+      border-color: var(--border-medium);
+      background: var(--bg-surface-elevated);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+    .admin-item-card.out-of-stock {
+      border-color: rgba(239, 68, 68, 0.35);
+      background: rgba(18, 14, 18, 0.7);
+    }
+
+    .admin-cat-tab {
+      flex-shrink: 0;
+      padding: 0.45rem 0.95rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
+      background: rgba(22, 29, 42, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all var(--transition-fast);
+    }
+    .admin-cat-tab:hover {
+      border-color: var(--gold-500);
+      color: #FFF;
+      background: rgba(245, 158, 11, 0.15);
+    }
+    .admin-cat-tab.active {
+      background: var(--gold-gradient);
+      color: #06080B;
+      font-weight: 800;
+      border-color: var(--gold-300);
+      box-shadow: 0 2px 10px rgba(245, 158, 11, 0.35);
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-8px); }
+      40%, 80% { transform: translateX(8px); }
+    }
+    .animate-shake {
+      animation: shake 400ms ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-brand-darkest text-slate-100 font-body min-h-screen selection:bg-amber-500 selection:text-slate-950">
+
+  <!-- ==========================================================================
+       1. LOGIN SECTION (AUTHENTICATION)
+       ========================================================================== -->
+  <section id="admin-login-section" class="min-h-screen flex items-center justify-center p-4">
+    <div id="login-card" class="w-full max-w-md bg-brand-surface border border-yellow-500/30 rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-md">
+      
+      <!-- Ambient Glow -->
+      <div class="absolute -top-24 -right-24 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="text-center mb-6">
+        <div class="w-16 h-16 rounded-full bg-brand-surfaceElevated p-2 border border-yellow-500/40 flex items-center justify-center mx-auto mb-3 shadow-lg">
+          <img src="assets/images/logo.png" alt="Mary Crown" class="w-full h-full object-contain">
+        </div>
+        <h1 class="font-brand font-black text-xl sm:text-2xl text-gold-gradient tracking-wider uppercase mb-1">
+          Mary Crown Restaurant
+        </h1>
+        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-yellow-500/10 border border-yellow-500/25 text-amber-300 text-xs font-bold uppercase tracking-wider">
+          <span>🔒 Owner Admin Portal</span>
+        </div>
+      </div>
+
+      <!-- Error message alert -->
+      <div id="admin-login-error" class="hidden mb-4 p-3 rounded-xl bg-red-950/80 border border-red-500/40 text-red-300 text-xs text-center font-bold">
+        Invalid Admin ID or Password.
+      </div>
+
+      <form id="admin-login-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+            Admin User ID
+          </label>
+          <div class="relative">
+            <input 
+              type="text" 
+              id="admin-id-input" 
+              required 
+              placeholder="e.g. admin123" 
+              autocomplete="username"
+              class="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-colors"
+            >
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+            Admin Password
+          </label>
+          <div class="relative">
+            <input 
+              type="password" 
+              id="admin-password-input" 
+              required 
+              placeholder="••••••••••" 
+              autocomplete="current-password"
+              class="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-colors"
+            >
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between text-xs text-slate-400 pt-1">
+          <label class="flex items-center gap-2 cursor-pointer select-none">
+            <input type="checkbox" id="admin-remember-me" class="rounded bg-slate-900 border-slate-700 text-amber-500 focus:ring-0">
+            <span>Remember me on this device</span>
+          </label>
+        </div>
+
+        <button 
+          type="submit" 
+          class="w-full py-3 rounded-xl bg-gold-gradient text-slate-950 font-black text-sm uppercase tracking-wider shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-transform"
+        >
+          Sign In to Portal
+        </button>
+      </form>
+
+      <div class="mt-6 pt-4 border-t border-slate-800 text-center">
+        <a href="/" class="text-xs text-slate-400 hover:text-amber-300 transition-colors inline-flex items-center gap-1 font-semibold">
+          <span>← Back to Customer Menu</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       2. DASHBOARD SECTION (MANAGEMENT PORTAL)
+       ========================================================================== -->
+  <main id="admin-dashboard-section" class="hidden min-h-screen pb-28">
+    
+    <!-- Top Sticky Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-slate-950/95 backdrop-blur-md border-b border-yellow-500/20 py-3 px-4 sm:px-6">
+      <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
+        
+        <!-- Brand Info -->
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-brand-surfaceElevated p-1 border border-yellow-500/35 flex items-center justify-center shadow">
+            <img src="assets/images/logo.png" alt="Mary Crown" class="w-full h-full object-contain">
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-brand font-black text-base sm:text-lg text-gold-gradient uppercase tracking-wide">Mary Crown</span>
+              <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-yellow-500/15 text-amber-300 border border-yellow-500/30">Owner Portal</span>
+            </div>
+            <span class="text-[11px] text-slate-400 hidden sm:block">Manage Menu Item Availability & Prices</span>
+          </div>
+        </div>
+
+        <!-- Header Actions -->
+        <div class="flex items-center gap-2">
+          
+          <!-- Live Customer Menu Link -->
+          <a 
+            href="/" 
+            target="_blank" 
+            rel="noopener"
+            class="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-yellow-500/40 text-xs font-bold text-slate-300 hover:text-amber-300 transition-colors hidden sm:inline-flex items-center gap-1.5"
+            title="Open customer view in new tab"
+          >
+            <span>Customer Menu</span>
+            <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+          </a>
+
+          <!-- Logout Button -->
+          <button 
+            id="admin-logout-btn" 
+            class="px-3 py-1.5 rounded-xl bg-slate-900 border border-red-500/30 text-xs font-bold text-red-400 hover:bg-red-500/10 hover:border-red-500/60 transition-colors inline-flex items-center gap-1.5"
+            title="Sign out of admin portal"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+            </svg>
+            <span>Log Out</span>
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 space-y-6">
+
+      <!-- ==================== OVERVIEW METRICS ==================== -->
+      <section class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        
+        <!-- Total Items -->
+        <div class="p-4 rounded-xl bg-brand-surface border border-slate-800 flex items-center justify-between">
+          <div>
+            <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Total Dishes</div>
+            <div id="stat-total-items" class="text-2xl font-black font-brand text-slate-100">0</div>
+          </div>
+          <div class="w-10 h-10 rounded-lg bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-amber-400 font-bold text-lg">
+            🍽️
+          </div>
+        </div>
+
+        <!-- In Stock -->
+        <div class="p-4 rounded-xl bg-brand-surface border border-emerald-500/25 flex items-center justify-between">
+          <div>
+            <div class="text-[11px] font-bold text-emerald-400 uppercase tracking-wider">Available (In Stock)</div>
+            <div id="stat-in-stock" class="text-2xl font-black font-brand text-emerald-400">0</div>
+          </div>
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-lg">
+            ✓
+          </div>
+        </div>
+
+        <!-- Out of Stock -->
+        <div class="p-4 rounded-xl bg-brand-surface border border-rose-500/25 flex items-center justify-between">
+          <div>
+            <div class="text-[11px] font-bold text-rose-400 uppercase tracking-wider">Out of Stock</div>
+            <div id="stat-out-of-stock" class="text-2xl font-black font-brand text-rose-400">0</div>
+          </div>
+          <div class="w-10 h-10 rounded-lg bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 font-bold text-lg">
+            ✗
+          </div>
+        </div>
+
+        <!-- Active Categories -->
+        <div class="p-4 rounded-xl bg-brand-surface border border-slate-800 flex items-center justify-between">
+          <div>
+            <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Categories</div>
+            <div class="text-2xl font-black font-brand text-amber-400">9</div>
+          </div>
+          <div class="w-10 h-10 rounded-lg bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-amber-400 font-bold text-lg">
+            📑
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ==================== SEARCH & FILTERS TOOLBAR ==================== -->
+      <section class="bg-brand-surface border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
+        
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 justify-between">
+          
+          <!-- Live Search Bar -->
+          <div class="relative flex-1">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <svg class="w-4 h-4 text-amber-400/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </div>
+            <input 
+              type="text" 
+              id="admin-search-input" 
+              placeholder="Search dishes to edit (e.g. Biryani, Shawarma, Naan, 65)..." 
+              class="w-full pl-10 pr-9 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-400"
+            >
+            <button id="admin-search-clear" class="hidden absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-white" aria-label="Clear search">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Dropdown Filters -->
+          <div class="flex items-center gap-2 flex-wrap sm:flex-nowrap">
+            
+            <!-- Stock Status Filter -->
+            <select id="admin-stock-filter" class="px-3 py-2 bg-slate-950 border border-slate-700 rounded-xl text-xs font-semibold text-slate-200 focus:outline-none focus:border-amber-400">
+              <option value="all">📦 All Statuses</option>
+              <option value="in_stock">🟢 In Stock Only</option>
+              <option value="out_of_stock">🔴 Out of Stock Only</option>
+            </select>
+
+            <!-- Dietary Filter -->
+            <select id="admin-diet-filter" class="px-3 py-2 bg-slate-950 border border-slate-700 rounded-xl text-xs font-semibold text-slate-200 focus:outline-none focus:border-amber-400">
+              <option value="all">🥗 All Diets</option>
+              <option value="veg">🟢 Veg Only</option>
+              <option value="nonveg">🔴 Non-Veg Only</option>
+            </select>
+
+          </div>
+
+        </div>
+
+        <!-- Category Pills Scroll Row -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-1 pt-1 scrollbar-none" id="admin-category-tabs">
+          <!-- Populated dynamically via admin.js -->
+        </div>
+
+        <!-- Bulk Action Tools Row -->
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-xs text-slate-400">
+          <span id="admin-filtered-count">Showing 0 items</span>
+          <div class="flex items-center gap-2">
+            <button id="admin-mark-all-instock" class="px-2.5 py-1 rounded-lg bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 font-bold hover:bg-emerald-500/20 transition-colors">
+              ✓ Set All Filtered In Stock
+            </button>
+            <button id="admin-mark-all-outofstock" class="px-2.5 py-1 rounded-lg bg-rose-950/60 border border-rose-500/30 text-rose-300 font-bold hover:bg-rose-500/20 transition-colors">
+              ✗ Set All Filtered Out of Stock
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ==================== ITEMS MANAGEMENT GRID ==================== -->
+      <section>
+        <div id="admin-items-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Populated dynamically via admin.js -->
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ==================== FLOATING STICKY ACTION BAR ==================== -->
+    <div class="fixed bottom-0 inset-x-0 z-50 bg-slate-950/95 backdrop-blur-lg border-t border-yellow-500/30 py-3 px-4 sm:px-6 shadow-2xl">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+        
+        <!-- Status / Unsaved indicator -->
+        <div class="flex items-center gap-2 text-xs">
+          <span id="admin-unsaved-badge" class="hidden px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 font-extrabold animate-pulse">
+            ⚠️ Unsaved Changes Pending
+          </span>
+          <span class="text-slate-400 hidden sm:inline">Changes save directly to your browser & customer view.</span>
+        </div>
+
+        <!-- Action Controls -->
+        <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+          
+          <!-- Reset to Default Button -->
+          <button 
+            id="admin-reset-btn" 
+            class="px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 hover:border-red-500/40 text-xs font-bold text-slate-300 hover:text-red-300 transition-colors"
+            title="Reset menu to factory default"
+          >
+            Reset Default
+          </button>
+
+          <!-- Copy JSON -->
+          <button 
+            id="admin-copy-json-btn" 
+            class="px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 hover:border-yellow-500/40 text-xs font-bold text-slate-300 hover:text-amber-300 transition-colors hidden md:inline-block"
+            title="Copy menu JSON data to clipboard"
+          >
+            Copy JSON
+          </button>
+
+          <!-- Export updated menuData.js -->
+          <button 
+            id="admin-export-btn" 
+            class="px-3.5 py-2 rounded-xl bg-slate-900 border border-yellow-500/40 text-xs font-bold text-amber-300 hover:bg-yellow-500/10 transition-colors inline-flex items-center gap-1.5"
+            title="Download the updated menuData.js file for permanent global GitHub/Vercel deployment"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+            </svg>
+            <span>Download menuData.js</span>
+          </button>
+
+          <!-- Primary Save Changes Button -->
+          <button 
+            id="admin-save-btn" 
+            class="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-gold-gradient text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all inline-flex items-center justify-center gap-2"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Save Changes</span>
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ==================== RESET CONFIRMATION MODAL ==================== -->
+    <div id="admin-reset-modal" class="modal-overlay hidden">
+      <div class="modal-content max-w-sm text-center">
+        <div class="w-12 h-12 rounded-full bg-red-950/80 border border-red-500/40 flex items-center justify-center mx-auto mb-3 text-red-400">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+          </svg>
+        </div>
+        <h3 class="font-bold text-base text-slate-100 mb-1 font-brand">Reset to Default Menu?</h3>
+        <p class="text-xs text-slate-400 mb-5 leading-relaxed">
+          This will revert all dish prices and in-stock statuses back to original factory defaults. Any custom changes will be discarded.
+        </p>
+        <div class="flex items-center gap-2">
+          <button id="admin-cancel-reset-btn" class="flex-1 py-2 px-3 rounded-xl bg-slate-800 text-slate-300 font-bold text-xs hover:bg-slate-700 transition-colors">
+            Cancel
+          </button>
+          <button id="admin-confirm-reset-btn" class="flex-1 py-2 px-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs transition-colors">
+            Yes, Reset
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="admin-toast" class="toast-notification hidden">
+      <span class="text-amber-400 font-bold text-lg">👑</span>
+      <span id="admin-toast-message" class="text-xs sm:text-sm font-semibold text-slate-100"></span>
+    </div>
+
+  </main>
+
+  <!-- Core Scripts -->
+  <script src="assets/js/menuData.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
