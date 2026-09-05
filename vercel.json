@@ -8,12 +8,8 @@
       "destination": "/admin.html"
     },
     {
-      "source": "/admin/(.*)",
+      "source": "/admin/",
       "destination": "/admin.html"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
     }
   ]
 }

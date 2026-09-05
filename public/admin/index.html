@@ -6,8 +6,9 @@
   <title>Mary Crown Restaurant | Owner Admin Portal</title>
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#06080B">
+  <base href="/">
   
-  <link rel="icon" type="image/png" href="../assets/images/logo.png">
+  <link rel="icon" type="image/png" href="/assets/images/logo.png">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -37,7 +38,7 @@
   </script>
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 
   <style>
     /* Admin Specific Styling */
@@ -113,7 +114,7 @@
 
       <div class="text-center mb-6">
         <div class="w-16 h-16 rounded-full bg-brand-surfaceElevated p-2 border border-yellow-500/40 flex items-center justify-center mx-auto mb-3 shadow-lg">
-          <img src="../assets/images/logo.png" alt="Mary Crown" class="w-full h-full object-contain">
+          <img src="/assets/images/logo.png" alt="Mary Crown" class="w-full h-full object-contain">
         </div>
         <h1 class="font-brand font-black text-xl sm:text-2xl text-gold-gradient tracking-wider uppercase mb-1">
           Mary Crown Restaurant
@@ -128,7 +129,7 @@
         Invalid Admin ID or Password.
       </div>
 
-      <form id="admin-login-form" class="space-y-4">
+      <form id="admin-login-form" onsubmit="return false;" class="space-y-4">
         <div>
           <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
             Admin User ID
@@ -212,7 +213,7 @@
         <!-- Brand Info -->
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-full bg-brand-surfaceElevated p-1 border border-yellow-500/35 flex items-center justify-center shadow">
-            <img src="../assets/images/logo.png" alt="Mary Crown" class="w-full h-full object-contain">
+            <img src="/assets/images/logo.png" alt="Mary Crown" class="w-full h-full object-contain">
           </div>
           <div>
             <div class="flex items-center gap-2">
@@ -484,7 +485,7 @@
   </main>
 
   <!-- Core Scripts -->
-  <script src="../assets/js/menuData.js"></script>
-  <script src="../assets/js/admin.js"></script>
+  <script src="/assets/js/menuData.js"></script>
+  <script src="/assets/js/admin.js"></script>
 </body>
 </html>

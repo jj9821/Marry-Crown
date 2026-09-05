@@ -133,13 +133,23 @@
   }
 
   function showDashboard() {
-    if (loginSection) loginSection.classList.add("hidden");
-    if (dashboardSection) dashboardSection.classList.remove("hidden");
-    loadMenu();
-    loadDisplayMode();
-    renderCategories();
-    renderItems();
-    updateStats();
+    try {
+      if (loginSection) loginSection.classList.add("hidden");
+      if (dashboardSection) dashboardSection.classList.remove("hidden");
+      loadMenu();
+      loadDisplayMode();
+      renderCategories();
+      renderItems();
+      updateStats();
+    } catch (err) {
+      console.error("Error in showDashboard:", err);
+    }
+  }
+
+  if (typeof window !== "undefined") {
+    window.showDashboard = showDashboard;
+    window.handleLogin = handleLogin;
+    window.handleLogout = handleLogout;
   }
 
   /* ==========================================================================
