@@ -153,7 +153,8 @@ document.addEventListener("DOMContentLoaded", () => {
     categorySheetList.innerHTML = "";
 
     CATEGORIES.forEach((cat) => {
-      const currentItems = (window.MENU_ITEMS || MENU_ITEMS);\n      const count = currentItems.filter(i => i.category === cat.id).length;
+      const currentItems = ((typeof window !== "undefined" && window.MENU_ITEMS) ? window.MENU_ITEMS : (typeof MENU_ITEMS !== "undefined" ? MENU_ITEMS : []));
+      const count = currentItems.filter(i => i.category === cat.id).length;
       const row = document.createElement("button");
       row.className = "w-full flex items-center justify-between p-3.5 rounded-xl bg-slate-900/80 border border-yellow-500/15 hover:border-yellow-500/50 hover:bg-yellow-500/10 text-left transition-all group";
       row.innerHTML = `
@@ -239,7 +240,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let totalVisibleItems = 0;
 
     CATEGORIES.forEach((cat) => {
-      const currentItems = (window.MENU_ITEMS || MENU_ITEMS);\n    const catItems = currentItems.filter((item) => {
+      const currentItems = ((typeof window !== "undefined" && window.MENU_ITEMS) ? window.MENU_ITEMS : (typeof MENU_ITEMS !== "undefined" ? MENU_ITEMS : []));
+      const catItems = currentItems.filter((item) => {
         if (item.category !== cat.id) return false;
 
         // Diet filter
