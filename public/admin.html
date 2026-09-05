@@ -138,24 +138,35 @@
               type="text" 
               id="admin-id-input" 
               required 
-              placeholder="e.g. admin123" 
+              placeholder="admin123" 
               autocomplete="username"
+              autocapitalize="none"
+              autocorrect="off"
+              spellcheck="false"
               class="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-colors"
             >
           </div>
         </div>
 
         <div>
-          <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
-            Admin Password
-          </label>
+          <div class="flex items-center justify-between mb-1.5">
+            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider">
+              Admin Password
+            </label>
+            <button type="button" id="toggle-pwd-visibility" class="text-[11px] text-amber-400 hover:text-amber-300 font-semibold focus:outline-none">
+              👁️ Show Password
+            </button>
+          </div>
           <div class="relative">
             <input 
               type="password" 
               id="admin-password-input" 
               required 
-              placeholder="••••••••••" 
+              placeholder="1234567890" 
               autocomplete="current-password"
+              autocapitalize="none"
+              autocorrect="off"
+              spellcheck="false"
               class="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-colors"
             >
           </div>
@@ -163,14 +174,18 @@
 
         <div class="flex items-center justify-between text-xs text-slate-400 pt-1">
           <label class="flex items-center gap-2 cursor-pointer select-none">
-            <input type="checkbox" id="admin-remember-me" class="rounded bg-slate-900 border-slate-700 text-amber-500 focus:ring-0">
+            <input type="checkbox" id="admin-remember-me" checked class="rounded bg-slate-900 border-slate-700 text-amber-500 focus:ring-0">
             <span>Remember me on this device</span>
           </label>
+          <button type="button" id="quick-fill-creds" class="text-amber-400 hover:underline font-bold text-[11px]">
+            ⚡ Quick-Fill
+          </button>
         </div>
 
         <button 
           type="submit" 
-          class="w-full py-3 rounded-xl bg-gold-gradient text-slate-950 font-black text-sm uppercase tracking-wider shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-transform"
+          id="admin-login-submit-btn"
+          class="w-full py-3 rounded-xl bg-gold-gradient text-slate-950 font-black text-sm uppercase tracking-wider shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-transform cursor-pointer"
         >
           Sign In to Portal
         </button>
