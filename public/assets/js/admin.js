@@ -39,7 +39,7 @@
   const searchClearBtn = document.getElementById("admin-search-clear");
   const categoryTabsContainer = document.getElementById("admin-category-tabs");
   const stockFilterSelect = document.getElementById("admin-stock-filter");
-  const dietFilterSelect = document.getElementById("admin-diet-filter");
+  const dietFilterSelect = document.getElementById("admin-diet-filter");\n  const displayModeSelect = document.getElementById("admin-display-mode");
   
   // Stat counters
   const totalItemsCountEl = document.getElementById("stat-total-items");
@@ -130,6 +130,7 @@
     if (loginSection) loginSection.classList.add("hidden");
     if (dashboardSection) dashboardSection.classList.remove("hidden");
     loadMenu();
+    loadDisplayMode();
     renderCategories();
     renderItems();
     updateStats();
@@ -138,6 +139,13 @@
   /* ==========================================================================
      DATA LOADING & NORMALIZATION
      ========================================================================== */
+  function loadDisplayMode() {
+    const saved = (typeof localStorage !== "undefined" && localStorage.getItem("mary_crown_display_mode")) || "hide";
+    if (displayModeSelect) {
+      displayModeSelect.value = saved;
+    }
+  }
+
   function loadMenu() {
     if (typeof window.loadStoredMenu === "function") {
       menuItems = JSON.parse(JSON.stringify(window.loadStoredMenu()));
@@ -457,6 +465,9 @@
      BULK ACTIONS & PERSISTENCE
      ========================================================================== */
   function saveAllChanges() {
+    if (displayModeSelect) {
+      localStorage.setItem("mary_crown_display_mode", displayModeSelect.value);
+    }
     if (typeof window.saveCustomMenu === "function") {
       const ok = window.saveCustomMenu(menuItems);
       if (ok) {
@@ -599,6 +610,7 @@ if (typeof window !== "undefined") {
       localStorage.removeItem("mary_crown_menu_custom_v1");
     }
     loadMenu();
+    loadDisplayMode();
     setUnsaved(false);
     renderCategories();
     renderItems();
@@ -673,6 +685,13 @@ if (typeof window !== "undefined") {
       dietFilterSelect.addEventListener("change", (e) => {
         selectedDietFilter = e.target.value;
         renderItems();
+      });
+    }
+
+    if (displayModeSelect) {
+      displayModeSelect.addEventListener("change", (e) => {
+        localStorage.setItem("mary_crown_display_mode", e.target.value);
+        setUnsaved(true);
       });
     }
 

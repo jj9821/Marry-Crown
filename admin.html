@@ -211,6 +211,15 @@
         <!-- Header Actions -->
         <div class="flex items-center gap-2">
           
+          <!-- Out of Stock Display Mode Selector -->
+          <div class="hidden lg:flex items-center gap-1.5 px-2.5 py-1 bg-slate-900 border border-slate-700 rounded-xl text-xs">
+            <span class="text-slate-400 font-semibold text-[11px]">Turned-Off Dishes:</span>
+            <select id="admin-display-mode" class="bg-transparent border-0 text-amber-300 font-extrabold text-xs focus:ring-0 cursor-pointer">
+              <option value="hide" class="bg-slate-950 text-white">🙈 Hide Completely (Default)</option>
+              <option value="badge" class="bg-slate-950 text-white">🏷️ Show "Sold Out" Badge</option>
+            </select>
+          </div>
+
           <!-- Live Customer Menu Link -->
           <a 
             href="/" 

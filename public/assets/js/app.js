@@ -135,7 +135,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     categoryScroll.appendChild(allBtn);
 
+    const displayMode = (typeof localStorage !== "undefined" && localStorage.getItem("mary_crown_display_mode")) || "hide";
+    const currentItems = ((typeof window !== "undefined" && window.MENU_ITEMS) ? window.MENU_ITEMS : (typeof MENU_ITEMS !== "undefined" ? MENU_ITEMS : []));
+
     CATEGORIES.forEach((cat) => {
+      // Check if category has any available dishes
+      const availableCount = currentItems.filter(i => i.category === cat.id && (displayMode !== "hide" || i.available !== false)).length;
+      if (availableCount === 0) return; // Hide category tab if all items are turned off!
+
       const btn = document.createElement("button");
       btn.className = "category-tab-btn";
       btn.dataset.category = cat.id;
@@ -152,9 +159,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!categorySheetList) return;
     categorySheetList.innerHTML = "";
 
+    const displayMode = (typeof localStorage !== "undefined" && localStorage.getItem("mary_crown_display_mode")) || "hide";
+    const currentItems = ((typeof window !== "undefined" && window.MENU_ITEMS) ? window.MENU_ITEMS : (typeof MENU_ITEMS !== "undefined" ? MENU_ITEMS : []));
+
     CATEGORIES.forEach((cat) => {
-      const currentItems = ((typeof window !== "undefined" && window.MENU_ITEMS) ? window.MENU_ITEMS : (typeof MENU_ITEMS !== "undefined" ? MENU_ITEMS : []));
-      const count = currentItems.filter(i => i.category === cat.id).length;
+      const availableCount = currentItems.filter(i => i.category === cat.id && (displayMode !== "hide" || i.available !== false)).length;
+      if (availableCount === 0) return; // Hide category if no available dishes
+      const count = availableCount;
       const row = document.createElement("button");
       row.className = "w-full flex items-center justify-between p-3.5 rounded-xl bg-slate-900/80 border border-yellow-500/15 hover:border-yellow-500/50 hover:bg-yellow-500/10 text-left transition-all group";
       row.innerHTML = `
@@ -239,10 +250,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const query = searchQuery.trim().toLowerCase();
     let totalVisibleItems = 0;
 
+    const displayMode = (typeof localStorage !== "undefined" && localStorage.getItem("mary_crown_display_mode")) || "hide";
+    const currentItems = ((typeof window !== "undefined" && window.MENU_ITEMS) ? window.MENU_ITEMS : (typeof MENU_ITEMS !== "undefined" ? MENU_ITEMS : []));
+
     CATEGORIES.forEach((cat) => {
-      const currentItems = ((typeof window !== "undefined" && window.MENU_ITEMS) ? window.MENU_ITEMS : (typeof MENU_ITEMS !== "undefined" ? MENU_ITEMS : []));
       const catItems = currentItems.filter((item) => {
         if (item.category !== cat.id) return false;
+
+        // Hide out of stock items if display mode is hide (default)
+        if (displayMode === "hide" && item.available === false) return false;
 
         // Diet filter
         if (currentDietFilter === "veg" && !item.isVeg) return false;
@@ -918,16 +934,18 @@ document.addEventListener("DOMContentLoaded", () => {
   function setupEventListeners() {
     // Listen for real-time menu updates from Owner Admin Portal
     window.addEventListener("menu:updated", () => {
-      renderMenu();
+      initCategoryNav();
       initCategorySheet();
+      renderMenu();
     });
     window.addEventListener("storage", (e) => {
-      if (e.key === "mary_crown_menu_custom_v1") {
+      if (e.key === "mary_crown_menu_custom_v1" || e.key === "mary_crown_display_mode") {
         if (typeof window.loadStoredMenu === "function") {
           window.MENU_ITEMS = window.loadStoredMenu();
         }
-        renderMenu();
+        initCategoryNav();
         initCategorySheet();
+        renderMenu();
       }
     });
 
